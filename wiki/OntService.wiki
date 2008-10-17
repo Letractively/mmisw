@@ -1,18 +1,19 @@
 #summary Basic requirements for URI resolution
-#labels Phase-Requirements
+#labels Phase-Requirements,org.mmisw.ont
 
 = Introduction =
 
-This page contains some misc comments and related references about the Ont service.
+This page is intended to describe the requirements for URI resolution in the Ont service.
 
 
 = Details =
 
-  * 
+  * MmiUriDereferencing is the current proposal.
 
 
 = Related links =
 
   * MmiUriDereferencing
   * [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies]
+  * [http://www.w3.org/TR/swbp-vocab-pub/ Best Practice Recipes for Publishing RDF Vocabularies]
   * [http://www.w3.org/2008/01/rdf-media-types Media Types Issues for Text RDF Formats]
