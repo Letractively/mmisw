@@ -3,3 +3,47 @@
 (_from John's email on Oct 15/08_)
 
 We propose the enclosed URI interpretations and responses. All the URIs are assumed to begin 'http://mmisw.org/ont/{auth}/'. (They may have an optional '{version}/'; 'auth' is the ontology authority. More details on the URL construction are at http://mmisw.org/apguides/ontprovidersguide/ontguideconstructinguris.)
+
+
+== Ontology URIs ==
+
+Only the first entry is the RDF resource representing the vocabulary.
+
+HTML documents are served as content type text/html
+
+OWL documents are served as content type application/xml+rdf
+
+The "Accept: " strings are the content negotiation headers provided by the client, as to what kind of response it would like to see.
+
+
+someVocab           -> * the RDF resource representing the vocabulary; dereferenced according to content negotiation as
+                                         (a) an OWL document (if Accept: application/rdf+xml dominates)
+                                         (b) an HTML document (if Accept: text/html but not application/rdf+xml)
+                                         (c) an HTML document (if Accept: text/html, application/rdf+xml or Accept: */*)
+                                         (d) an OWL document with referenced style sheet (if no Accept)
+someVocab.owl    -> (this is not the term for the RDF resource itself) same as someVocab, except (c) is served as OWL document
+someVocab.rdf      -> (this is not the term for the RDF resource itself) same as someVocab, except (c) is served as OWL document someVocab.html   ->  dereferenced as HTML of vocabulary (content type of response is text/html)
+someVocab.n3      ->  dereferenced as N3 representation of vocabulary
+someVocab.pdf     ->  dereferenced as PDF representation of vocabulary (content type of response is PDF)
+someVocab.xxx     ->  dereferenced as xxx representation of vocabulary
+
+** Term URIs
+
+To be clear, only one of the first two forms below will be designated by MMI as the resource for a given term.  The first is the default choice. But if some ontologies require a '#' form for their RDF term resources, that option is available.  (To maximize usability, HTML responses can be supplied for either form, as long as each response clearly indicates which form is the actual resource.)
+
+someVocab/someTerm     -> * RDF resource representing term (MMI default); dereferenced per content negotiation as
+                                                     (a)  an OWL document with RDF for that term (if Accept: application/rdf+xml)
+                                                     (b)  an HTML document describing the term (if Accept: text/html but not application/rdf+xml)
+                                                     (c) an HTML document describing the term (if Accept: text/html, application/rdf+xml or Accept: */*)
+                                                     (d)  an OWL document describing the term in RDF, with referenced style sheet (if no Accept)
+
+Responses in the following case provide the whole ontology. HTML responses can insert a named anchor for each term (so the client will go to the anchor named 'someTerm' within the HTML).
+
+someVocab#someTerm    -> * alternative RDF resource for the term, but only if this form is needed/specified;
+                                                   dereferenced per content negotiation as
+                                                     (a) an OWL document with RDF for all of someVocab (if Accept: application/rdf+xml)
+                                                     (b) an HTML document describing the whole vocabulary (if Accept: text/html)
+                                                     (c) an HTML document describing the whole vocabulary (if Accept: text/html, application/rdf+xml or Accept: */*)
+                                                     (d)  an OWL document with referenced style sheet (if no Accept)
+
+someVocab/someTerm?form=pdf  -> example of a technique to obtain alternative server content; as above, "?form=owl" or "?form=rdf" will have the effect of changing response (c) to the OWL response, instead of the HTML response.
