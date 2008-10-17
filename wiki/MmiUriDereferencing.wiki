@@ -3,7 +3,7 @@
 
 
 We propose the enclosed URI interpretations and responses. All the URIs are assumed to begin 'http://mmisw.org/ont/{auth}/'. (They may have an optional '{version}/'; 'auth' is the ontology authority. More details on the URL construction are at 
-[http://mmisw.org/apguides/ontprovidersguide/ontguideconstructinguris].)
+[http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris].)
 
 
 == Ontology URIs ==
