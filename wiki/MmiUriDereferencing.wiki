@@ -1,6 +1,11 @@
 #summary URI dereferencing as proposed by MMI
-(_from John's email on Oct 15/08_)
 
+This page is intended to describe the level of compliance of the current implementation according to the official dereferencing procedure. 
+
+_*Note*: At time of writing, there is no such "official" specification yet. What follows is the current known draft from John Graybeal's email on Oct 15/08._
+
+
+= Reference specification =
 
 We propose the enclosed URI interpretations and responses. All the URIs are assumed to begin 'http://mmisw.org/ont/{auth}/'. (They may have an optional '{version}/'; 'auth' is the ontology authority. More details on the URL construction are at 
 [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris].)
@@ -49,3 +54,10 @@ Responses in the following case provide the whole ontology. HTML responses can i
 || || || (d)  an OWL document with referenced style sheet (if no Accept)||
 
 ||someVocab/someTerm?form=pdf  ||->|| example of a technique to obtain alternative server content; as above, "?form=owl" or "?form=rdf" will have the effect of changing response (c) to the OWL response, instead of the HTML response.||
+
+
+= Status of current implementation =
+
+Preliminary preparations in place, but the implementation does not yet try to follow any of the rules above.
+
+(_To be continued_)
