@@ -1,0 +1,18 @@
+#summary Comments about the support for SPARQL queries in the Ont service
+#labels org.mmisw.ont
+
+I'm currently using the Ont service to test the enabling of SPARQL queries against the ontologies in our aquaportal back-end. This is an implementation convenience as this support should probably be offered via other service.
+
+== current status ==
+
+To run a SPARQL query, use the `sparql` parameter:
+   ["CONSTRUCT  { ?s ?p ?o } where{?s ?p ?o. } LIMIT 20" http://mmisw.org/ont?sparql=CONSTRUCT  { ?s ?p ?o } where{?s ?p ?o. } LIMIT 20]
+
+For convenience, this same query is performed if no argument is provided:
+    http://mmisw.org/ont?sparql
+
+
+== stylesheet ==
+
+An XSLT stylesheet can be used to process a SPARQL response. Currently only the stylesheet provided by Luis is available. To use this option, add the `xslt` parameter:
+    http://mmisw.org/ont?sparql&xslt
