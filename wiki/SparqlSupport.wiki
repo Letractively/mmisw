@@ -6,10 +6,15 @@ I'm currently using the Ont service to test the enabling of SPARQL queries again
 == current status ==
 
 To run a SPARQL query, use the `sparql` parameter:
-   ["CONSTRUCT  { ?s ?p ?o } where{?s ?p ?o. } LIMIT 20" http://mmisw.org/ont?sparql=CONSTRUCT  { ?s ?p ?o } where{?s ?p ?o. } LIMIT 20]
+   [http://mmisw.org/ont?sparql=CONSTRUCT++%7B+%3Fs+%3Fp+%3Fo+%7D+where%7B%3Fs+%3Fp+%3Fo.+%7D+LIMIT+20+ http://mmisw.org/ont?sparql=CONSTRUCT{ ?s ?p ?o } where{?s ?p ?o. } LIMIT 20]
 
 For convenience, this same query is performed if no argument is provided:
     http://mmisw.org/ont?sparql
+
+
+=== issues ===
+
+See http://code.google.com/p/mmisw/issues/detail?id=1
 
 
 == stylesheet ==
