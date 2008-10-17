@@ -1,0 +1,18 @@
+#summary Basic requirements for URI resolution
+#labels Phase-Requirements
+
+= Introduction =
+
+This page contains some misc comments and related references about the Ont service.
+
+
+= Details =
+
+  * 
+
+
+= Related links =
+
+  * MmiUriDereferencing
+  * [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies]
+  * [http://www.w3.org/2008/01/rdf-media-types Media Types Issues for Text RDF Formats]
