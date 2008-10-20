@@ -2,11 +2,15 @@
 #labels Phase-Requirements,org.mmisw.ont
 
 
-  * MmiUriDereferencing contains the current specification proposal as well as the current status of the implementation.
+  * [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies]
+
+  * MmiUriDereferencingImpl describes current status of the implementation.
 
 
 = Related links =
 
-  * [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies]
+  
   * [http://www.w3.org/TR/swbp-vocab-pub/ Best Practice Recipes for Publishing RDF Vocabularies]
   * [http://www.w3.org/2008/01/rdf-media-types Media Types Issues for Text RDF Formats]
+
+  * http://www.w3.org/Protocols/HTTP/HTRQ_Headers.html#z3 : Syntax of the "accept" HTTP request field
