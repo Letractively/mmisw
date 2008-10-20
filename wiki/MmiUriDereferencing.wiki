@@ -1,8 +1,0 @@
-#summary MMI Ontology URI dereferencing
-#labels org.mmisw.ont
-
-   * [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies]: Specification
-   * MmiUriDereferencingImpl: Implementation status
-
-
-   * OntService: Some relevant links
