@@ -1,14 +1,14 @@
 #summary URI dereferencing: implementation status
 #labels org.mmisw.ont
 
-This page is intended to describe the level of compliance of the current implementation according to the [[MmiUriDereferencingSpec|official dereferencing procedure]].
+This page is intended to describe the level of compliance of the current implementation according to the official dereferencing specification, MmiUriDereferencingSpec.
 
-_*Note*: As of time of writing, there is no such "official" specification yet.
+_*Note*: As of time of writing, there is no such "official" specification yet._
 
 
 = Status of current implementation =
 
-Preliminary preparations in place, but the implementation does not yet try to follow any of the rules above.
+Preliminary preparations in place.
 
 Here are some examples using http://mmisw.org/ont/cf/parameter.owl
 
