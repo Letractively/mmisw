@@ -1,0 +1,24 @@
+#summary URI dereferencing: implementation status
+
+This page is intended to describe the level of compliance of the current implementation according to the official dereferencing specification, MmiUriDereferencingSpec.
+
+_*Note*: As of time of writing, there is no such "official" specification yet._
+
+
+= Status of current implementation =
+
+Preliminary preparations in place.
+
+Here are some examples using http://mmisw.org/ont/cf/parameter.owl
+
+||http://mmisw.org/ont/cf/parameter.owl ||->|| original ontology||
+||http://mmisw.org/ont/cf/parameter || ->|| original ontology. If the direct URI is not found, Ont will try with "owl" appended.||
+
+For the following, `xxxx?info` returns some general information about the requested URI: parsing, database search results, location of file on disk.  (this is for internal testing.)
+
+||http://mmisw.org/ont/cf/parameter?info ||->|| general info including all the subjects in the ontology. Ont replaces any "#" in the subjects with a "/", so it can be resolved directly. The info link is the same subject URI with the `?info` appended.||
+||http://mmisw.org/ont/cf/parameter/northward_ocean_heat_transport_due_to_bolus_advection?info ||->|| info for the particular subject (term)||
+||http://mmisw.org/ont/cf/parameter/northward_ocean_heat_transport_due_to_bolus_advection ||->|| just a placeholder for now (pretty much the same as the ?info one.||
+
+
+(_To be continued_)
