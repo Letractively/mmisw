@@ -1,4 +1,0 @@
-#summary MMI URI Dereferencing Specification
-#labels org.mmisw.ont
-
-Please, visit: [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies]
