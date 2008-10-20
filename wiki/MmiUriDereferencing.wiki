@@ -3,3 +3,6 @@
 
    * MmiUriDereferencingSpec: Specification
    * MmiUriDereferencingImpl: Implementation status
+
+
+   * OntService: Some relevant links
