@@ -1,9 +1,8 @@
 #summary URI dereferencing: implementation status
 #labels org.mmisw.ont
 
-This page is intended to describe the level of compliance of the current implementation according to the official dereferencing specification, MmiUriDereferencingSpec.
+This page is intended to describe the level of compliance of the current implementation according to the dereferencing specification located at [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies].
 
-_*Note*: As of time of writing, the specification is in draft format._
 
 
 = Status of current implementation =
