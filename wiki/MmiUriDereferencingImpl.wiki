@@ -23,5 +23,5 @@ Some examples using http://mmisw.org/ont/cf/parameter
 Terms are temporarily resolved in HTML format: 
    * http://mmisw.org/ont/cf/parameter/water_vapor_pressure
 
-Parameter "_debug" can be used temporarily for debugging purposes:
+Parameter `_debug` can be used temporarily for debugging purposes:
    * http://mmisw.org/ont/cf/parameter?_debug
