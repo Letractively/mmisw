@@ -1,27 +1,55 @@
 #summary URI dereferencing: implementation status
 #labels org.mmisw.ont
 
-This page is intended to describe the level of compliance of the current implementation according to the dereferencing specification located at [http://marinemetadata.org/apguides/ontprovidersguide/ontguideconstructinguris Constructing URIs for Ontologies].
-
+This page describes the level of compliance of the current implementation according to the dereferencing specification MMI's [http://marinemetadata.org/community/teams/ont/generaldocuments/onturideref|Ontology URI Dereferencing].
 
 
 = Status of current implementation =
 
-   * Handling of the accept header
-   * Handling of the file extension
-   * Handling of the "form" parameter
-   * "form" parameter (if given) takes precedence over file extension.
+== Handling of the accept header ==
+   * Done, except that the dominance of a particular content-type is simply determined by choosing the first content-type submitted by the client.
 
-Some examples using http://mmisw.org/ont/cf/parameter
+== Handling of the file extension ==
+   * .owl: done
+   * .rdf: done
+   * .html: done but can be improved. Anchors are generated so a URI like xxxx.html#someTerm is handled as usual by standard browsers.
+   * .n3: done
+   * .pdf: Not implemented (a 404 error is returned)
 
+== Handling of the "form" parameter ==
+   * Done. If given, this parameter takes precedence over the file extension.
+
+
+== Terms ==
+   * Terms are temporarily resolved in HTML format: http://mmisw.org/ont/cf/parameter/water_vapor_pressure
+
+
+== More examples ==
+
+   * http://mmisw.org/ont/gcmd/parameter.html#EARTH_SCIENCE--BIOSPHERE--PLANT_TAXONOMY--ALGAE
+   * http://mmisw.org/ont/gcmd/parameter/EARTH_SCIENCE--BIOSPHERE--PLANT_TAXONOMY--ALGAE
    * http://mmisw.org/ont/cf/parameter
    * http://mmisw.org/ont/cf/parameter.owl
    * http://mmisw.org/ont/cf/parameter.rdf
    * http://mmisw.org/ont/cf/parameter.html
    * http://mmisw.org/ont/cf/parameter.n3
 
-Terms are temporarily resolved in HTML format: 
-   * http://mmisw.org/ont/cf/parameter/water_vapor_pressure
 
-Parameter `_debug` can be used temporarily for debugging purposes:
+= Integration with other services =
+
+== Metadata display ==
+Parameter "_md" can be used to generate a metadata report. This is used by the RoR front-end. Example: 
+   http://mmisw.org/ont/gcmd/parameter?_md
+For convenience, a complete page can be generated with the "completepage" value: 
+   http://mmisw.org/ont/gcmd/parameter?_md=completepage
+
+
+== Debugging ==
+
+Parameter `_debug` (formerly, "info") can be used for debugging purposes:
    * http://mmisw.org/ont/cf/parameter?_debug
+   * http://mmisw.org/ont/cf/parameter.html/someterm?_debug
+   * http://mmisw.org/ont/mmi/20081021/topic/term?_debug
+   * http://mmisw.org/ont/cf/unexistent/someterm?_debug
+   * http://mmisw.org/ont/invalidMMIUri?_debug
+   * http://mmisw.org/ont/mmi/invalidversion/topic/term?_debug
