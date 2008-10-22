@@ -35,13 +35,22 @@ This page describes the level of compliance of the current implementation accord
    * http://mmisw.org/ont/cf/parameter.n3
 
 
-= Integration with other services =
+= Other features =
 
-== Metadata display ==
+== Integration with OR ==
+
+=== Metadata display ===
 Parameter "_md" can be used to generate a metadata report. This is used by the RoR front-end. Example: 
    http://mmisw.org/ont/gcmd/parameter?_md
 For convenience, a complete page can be generated with the "completepage" value: 
    http://mmisw.org/ont/gcmd/parameter?_md=completepage
+
+== SPARQL support ==
+
+See examples in http://mmisw.org/ont/sparql.html
+   * CONSTRUCT and SELECT queries supported
+   * In general, this is dispatched via the "sparql" parameter. For convenience, a default CONSTRUCT query is performed if no value is associated: http://mmisw.org/ont/?sparql
+   * Experimental HTML output using an internal XSLT transformation is performed if the "xslt" parameter is included, for example http://mmisw.org/ont/?xslt&sparql 
 
 
 == Debugging ==
@@ -53,3 +62,5 @@ Parameter `_debug` (formerly, "info") can be used for debugging purposes:
    * http://mmisw.org/ont/cf/unexistent/someterm?_debug
    * http://mmisw.org/ont/invalidMMIUri?_debug
    * http://mmisw.org/ont/mmi/invalidversion/topic/term?_debug
+
+In general, log information is generated in CATALINA/logs/ont.log
