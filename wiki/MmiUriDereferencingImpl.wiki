@@ -1,7 +1,7 @@
 #summary URI dereferencing: implementation status
 #labels org.mmisw.ont
 
-This page describes the level of compliance of the current implementation according to the dereferencing specification MMI's [http://marinemetadata.org/community/teams/ont/generaldocuments/onturideref|Ontology URI Dereferencing].
+This page describes the level of compliance of the current implementation according to the dereferencing specification MMI's [http://marinemetadata.org/community/teams/ont/generaldocuments/onturideref Ontology URI Dereferencing].
 
 
 = Status of current implementation =
