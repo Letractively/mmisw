@@ -1,5 +1,3 @@
-#summary Home page for the wiki
-
 = Welcome to mmisw =
 
 _(under construction--want to help?)_
