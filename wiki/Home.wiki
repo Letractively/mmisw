@@ -1,0 +1,29 @@
+#summary Home page for the wiki
+
+= Welcome to mmisw =
+
+
+==Starting Points==
+
+    * Documentation -- User information in this Wiki.
+    * [http://marinemetadata.org/semanticframework External Documentation]
+    * [Development] -- Contains information for developing mmisw. Includes FAQs, HOWTOs, Architectural descriptions, and discussions on future directions.
+    * Project Administration -- Descriptions of administration tasks, and procedures. Used by team members for running this server, and describing the release process.
+    * FAQ -- Frequently asked questions 
+
+==Recent News==
+
+    * mmisw 1.0.0beta has been released. Demonstrated during MMI Semantic Interoperability Workshop in Boulder, CO, in November 2008
+
+==Community==
+
+You can participate in mmisw by joining the mailing list:
+
+    * mmisw-dev: For developer discussion 
+
+
+==Issues==
+
+[http://code.google.com/p/mmisw/issues/list This is the place] to go to report or check on bugs and feature requests.
+
+This is [http://code.google.com/p/mmisw/w/list the complete list] of local wiki pages.
