@@ -1,0 +1,24 @@
+= Welcome to mmisw =
+
+_(under construction--want to help?)_
+
+==Starting Points==
+
+    * [http://marinemetadata.org/semanticframework External Documentation]
+
+==Recent News==
+
+    * mmisw 1.0.0beta has been released. Demonstrated during [http://marinemetadata.org/community/teams/workshop2008 MMI Semantic Interoperability Workshop] in Boulder, CO, in November 2008
+
+==Community==
+
+You can participate in mmisw development by joining this group:
+
+    * Group home page: http://groups.google.com/group/mmisw
+
+
+==Issues==
+
+[http://code.google.com/p/mmisw/issues/list This is the place] to go to report or check on bugs and feature requests.
+
+This is [http://code.google.com/p/mmisw/w/list the complete list] of local wiki pages.
