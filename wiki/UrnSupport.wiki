@@ -2,41 +2,48 @@
 
 = Registering a vocabulary with URN terms =
 
-In the context of the [http://mmisw.org/ontmd/voc2rdf/ Voc2RDF] tool, the current mechanism is basically as follows. (Note: the MMI tools are in general undergoing significant changes at time of writing.)
+(Note: the MMI tools are in general undergoing significant changes at time of writing.)
 
 == Basic Voc2RDF functionality ==
 
-Basically, Voc2RDF takes a base URI and a list of terms and creates a corresponding file on RDF format. Example:
+Basically, [http://mmisw.org/ontmd/voc2rdf/ Voc2RDF] takes a base URI and a list of terms and creates a corresponding file in RDF format. Example:
 
-Vocabulary URI: http://mmisw.org/ont/myvocab
+Vocabulary URI: `http://mmisw.org/ont/myvocab`
 || name || description ||
 || foo  || foo description ... ||
 || baz  || baz description ... ||
 
-The first row is a header specifying properties for the terms in the subsequent rows. First column is special in that it is used to create the URI for the term in each row. In the example above, the final URI for the "foo" term will be "http://mmisw.org/ont/myvocab/foo". This term URI will be *directly* resolvable. For the remainder of this note, "MMISW-based URI" will refer to URIs at the MMI Registry that are directly resolvable in this sense. 
+The first row is a header specifying properties for the terms in the subsequent rows. First column is special in that it is used to create the URI for the term in each row. In the example above, the final URI for the "foo" term will be `"http://mmisw.org/ont/myvocab/foo"`. This term URI will be *directly* [http://marinemetadata.org/apguides/ontprovidersguide/urlresolution resolvable]. For the remainder of this note, I say "MMI-based URI" to refer to URIs at the MMI Registry that are directly resolvable. 
 
 == User-specified term URIs ==
 
-However, if the header label of the first column in the Voc2RDF term table is "URI", then the values in the column will be used as given, ie., no composition with the base URI will be performed. For example:
+If the header label of the first column in the Voc2RDF term table is "uri" (and not "name" as in the above example), then the values in the column will be used as given, ie., no composition with the base URI will be performed. For example:
 
-Vocabulary URI: http://mmisw.org/ont/myvocab2
-|| URI || description ||
-|| http://mydomain.xyz/abcd/foo  || foo description ... ||
-|| http://other.xyz/baz          || baz description ... ||
+Vocabulary URI: `http://mmisw.org/ont/myvocab2`
+|| uri || description ||
+|| `http://mydomain.xyz/abcd/foo`  || foo description ... ||
+|| `http://other.xyz/baz`          || baz description ... ||
+
+In this case, `http://mmisw.org/ont/myvocab2` will basically serve as a container of the terms.
 
 == User-specified term URNs ==
 
-Of course, the user-scpecified URIs can in particular be URNs, for example:
+Of course, the user-specified URIs with the above mechanism can in particular be URNs, for example:
 
-|| URI || description ||
+|| uri || description ||
 || urn:ogc:def:crs:ogc:1_3:crs27  || NAD27 longitude-latitude B.5 in OGC 06-042 ||
 
 
 = Resolving URIs =
 
-As noted above, any MMISW-based URI is resolvable directly. For those URIs that were explicitly specified by the user, the following HTTP request is supported:
-    http://mmisw.org/ont?uri=<a URI>
-for example:
+As noted above, any MMI-based URI is resolvable directly. Another provided mechanism to resolve any registered URI is via an HTTP service as follows:
+    `http://mmisw.org/ont?uri=<a URI>`
+which is particularly useful to resolve registered URNs, for example:
     http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27
 
-  
+The format of the response will be determined according to content negotiation, for example, in RDF if the requester says that's the preferred format. But a 'form' parameter can be included to explicitly request a particular format, for example:
+
+    http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27&form=rdf
+    http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27&form=html
+    http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27&form=n3
+(other formats, including JSON will be provided as well)
