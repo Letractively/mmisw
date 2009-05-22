@@ -41,9 +41,10 @@ As noted above, any MMI-based URI is resolvable directly. Another provided mecha
 which is particularly useful to resolve registered URNs, for example:
     http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27
 
-The format of the response will be determined according to content negotiation, for example, in RDF if the requester says that's the preferred format. But a 'form' parameter can be included to explicitly request a particular format, for example:
+The format of the response will be determined according to content negotiation, for example, in RDF ("application/rdf+xml") if the client says that's the preferred format. But a 'form' parameter can be included to explicitly request a particular format, for example:
 
     http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27&form=rdf
+
     http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27&form=html
+
     http://mmisw.org/ont?uri=urn:ogc:def:crs:ogc:1_3:crs27&form=n3
-(other formats, including JSON will be provided as well)
