@@ -13,7 +13,7 @@ Vocabulary URI: `http://mmisw.org/ont/myvocab`
 || foo  || foo description ... ||
 || baz  || baz description ... ||
 
-The first row is a header specifying properties for the terms in the subsequent rows. First column is special in that it is used to create the URI for the term in each row. In the example above, the final URI for the "foo" term will be `"http://mmisw.org/ont/myvocab/foo"`. This term URI will be *directly* [http://marinemetadata.org/apguides/ontprovidersguide/urlresolution resolvable]. For the remainder of this note, I say "MMI-based URI" to refer to URIs at the MMI Registry that are directly resolvable. 
+The first row is a header specifying properties for the terms in the subsequent rows. First column is special in that it is used to create the URI for the term in each row. In the example above, the final URI for the "foo" term will be `"http://mmisw.org/ont/myvocab/foo"`. This term URI will be *directly* [http://marinemetadata.org/apguides/ontprovidersguide/urlresolution resolvable]. For the remainder of this note, I say "MMI-based URI" to refer to URIs that are directly resolvable against the MMI Registry. 
 
 == User-specified term URIs ==
 
