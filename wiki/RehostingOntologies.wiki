@@ -1,0 +1,18 @@
+#summary Re-hosting ontologies
+
+= Re-hosting ontologies =
+
+Code changes to support the re-hosting of ontologies.
+
+== ont ==
+
+  * Graph: load the re-hosted ontology
+
+== iserver ==
+
+  * TempOntologyInfo: new attribute preserveOriginalBaseNamespace
+  * Server.createOntology(CreateOntologyInfo): uses the preserveOriginalBaseNamespace flag to keep original base namespace or apply the regular asssignment of the MMISW-based namespace as usual.
+
+== ontmd ==
+
+  * UploadLocalOntologyPanel
