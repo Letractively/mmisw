@@ -1,0 +1,14 @@
+#summary Aspects to consider for upgrading to a newer version of BioPortal back-end
+
+
+= Aspects to consider for upgrading to a newer version of BioPortal back-end =
+
+
+Currently using bioportal-1006
+
+
+== Registering a new version of an ontology ==
+
+if the user logged in is an administrator, then we use the user ID of the existing ontology instead of the administrator's ID. 
+This is possible because the back-end does not check that the session has to be used in combination with the logged in user. So, the overall mechanism should be revisited later, especially if we upgrade.
+
