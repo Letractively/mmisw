@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <link rel=stylesheet href="/ont/main.css" type="text/css" />
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-16970585-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script> 
+</head>
+<body>
+   <img src="-/img/mmior.jpg" />
+   <div class="indented">
+  
+  <table >
+  <tbody>
+    <tr> 
+	    <td>
+	    <form name="testForm" method="post" action="/ont/?sparql">
+	    	Your SPARQL query:<br>
+		<textarea rows="12" cols="110" name="sparql"></textarea>
+	    	<input value="Submit" type="submit">
+	    </form>
+	</td>
+
+	<td>
+	<a href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL</a> 
+	(<b>S</b>imple <b>P</b>rotocol and <b>R</b>DF <b>Q</b>uery <b>L</b>anguage) is the 
+	 standard query language for 
+	<a href="http://www.w3.org/RDF">RDF</a> (Resource Description Framework). 
+	More information <a href="http://en.wikipedia.org/wiki/SPARQL">here</a>.
+
+	<br/>
+	Use this form to submit your SPARQL query against the 
+	<a href="http://mmisw.org/or">MMI Ontology Registry and Respository</a>. 
+	
+	<br/>
+	Both GET and POST methods are accepted.
+	
+	</td>
+  </tr>
+ </tbody>
+ </table>  
+
+<br/>
+<table class="inline">
+<tbody><tr> <th> CONSTRUCT examples</th>   <th> SELECT examples</th>  </tr>
+
+<tr>
+    <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+        <textarea rows="1" cols="60" name="sparql" readonly="yes">CONSTRUCT  { ?s ?p ?o } WHERE {?s ?p ?o. } LIMIT 20
+</textarea>
+        <input value="Submit" type="submit">
+    </form>
+    </td>
+
+    <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+        <textarea rows="1" cols="60" name="sparql" readonly="yes">SELECT  ?s ?p ?o WHERE {?s ?p ?o. } LIMIT 20
+</textarea>
+        <input value="Submit" type="submit">
+    </form>
+    </td>
+
+</tr>
+ 
+<tr>
+   <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+	<textarea rows="3" cols="60" name="sparql" readonly="yes">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+CONSTRUCT { ?s dc:creator ?creator }
+WHERE { ?s dc:creator ?creator. }
+</textarea>
+    	<input value="Submit" type="submit">
+    </form>
+   </td>
+   <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+        <textarea rows="3" cols="60" name="sparql" readonly="yes">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+SELECT  ?s  ?creator 
+WHERE { ?s dc:creator ?creator. }
+</textarea>
+        <input value="Submit" type="submit">
+    </form>
+   </td>
+
+</tr>
+
+
+<tr>
+    <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+	<textarea rows="4" cols="60" name="sparql" readonly="yes">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; 
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt; 
+CONSTRUCT { ?class rdf:type owl:Class. } 
+WHERE { ?class rdf:type owl:Class. } LIMIT 20</textarea>
+    	<input value="Submit" type="submit">
+    </form>
+    </td>
+    <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+        <textarea rows="4" cols="60" name="sparql" readonly="yes">PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT ?class 
+WHERE { ?class rdf:type owl:Class. } LIMIT 20</textarea>
+        <input value="Submit" type="submit">
+    </form>
+    </td>
+
+</tr>
+
+
+<tr>
+    <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+        <textarea rows="5" cols="60" name="sparql" readonly="yes">PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+CONSTRUCT {?instance <INSTANCEOF> ?class } 
+WHERE { ?class rdf:type owl:Class .
+        ?instance rdf:type ?class . } LIMIT 200
+</textarea>
+        <input value="Submit" type="submit">
+    </form>
+    </td>
+    <td>
+    <form name="testForm" method="get" action="/ont/?sparql">
+        <textarea rows="5" cols="60" name="sparql" readonly="yes">PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?instance ?class 
+WHERE { ?class rdf:type owl:Class .
+        ?instance rdf:type ?class . } LIMIT 200
+</textarea>
+        <input value="Submit" type="submit">
+    </form>
+    </td>
+
+</tr>
+
+</tbody></table>
+
+<br/>
+Note: The default output format for SELECT queries is HTML. 
+To obtain a CSV output format, add the "form" parameter with value "csv" in your GET or
+POST request, for example: <br/>
+<a href="http://mmisw.org/ont/?form=csv&sparql=SELECT++%3Fs+%3Fp+%3Fo+WHERE+{%3Fs+%3Fp+%3Fo.+}+LIMIT+20%0D%0A">http://mmisw.org/ont/?form=csv&sparql=SELECT ?s ?p ?o WHERE {?s ?p ?o. } LIMIT 20</a>.
+
+
+  </div>
+  </body></html>

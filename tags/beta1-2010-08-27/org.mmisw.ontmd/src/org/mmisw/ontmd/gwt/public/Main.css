@@ -1,0 +1,272 @@
+/** Add css rules here for your application. */
+
+
+/** Example rules used by the template application (remove for your app) */
+.pc-template-btn {
+  display: block;
+  font-size: 16pt
+}
+
+#pc-template-img {
+  margin-top: 20px;
+}
+
+#my-button-id { font-size: 70%; }
+
+/* NOTE: this would make firefox to hide some borders.
+Removed to fix http://code.google.com/p/mmisw/issues/detail?id=97
+table { empty-cells: hide; }
+*/
+
+/* inline tables */
+table.inline {
+  font-size: small;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+table.inline th {
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #dee7ec;
+}
+
+table.inline td {
+  padding: 3px;
+  border: 1px solid #8cacbb;
+}
+
+
+.gwt-DialogBox { border: 0px outset; background-color: white; }
+
+.Caption{ background-color: #dee7ec; font-weight: bold; cursor: move; text-align: left; }
+
+
+.TermTable {
+  font-size: small;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #8cacbb;
+}
+
+.TermTable-controlRow {
+  font-color: gray;
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #ffffff;
+}
+
+.TermTable-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #dee7ec;
+}
+
+.TermTable-header td {
+  min-width: 25px;
+  _width: 25px;  /* IE6 hack */
+  min-height: 20px;
+  _height: 20px;   /* IE6 hack */
+}
+
+.TermTable-OddRow {
+  background-color: #f3fcff;
+  border: 1px solid #8cacbb;
+}
+
+.TermTable-EvenRow {
+  background-color: #ffffff;
+  border: 1px solid #8cacbb;
+}
+
+.TermTable-cellFocused {
+  background-color: cyan;
+  border: 3px solid #8cacbb;
+}
+
+.TermTable-termField {
+	background-color: transparent;
+	border: 2px solid transparent;
+}
+.TermTable-termField-focused {
+	border: 2px solid blue;
+}
+.TermTable-termField-focusedEdit {
+	border: 2px solid red;
+}
+
+.ToolBar {
+  text-align: center;
+  padding: 0px;
+  /* border: 1px solid #8cacbb; */
+  background-color: #dee7ec;
+}
+
+.OntologyTable {
+  font-size: small;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #dee7ec;
+}
+
+.OntologyTable-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #dee7ec;
+}
+
+.OntologyTable-row {
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #dee7ec;
+}
+
+
+.DataTable {
+  font-size: small;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #dee7ec;
+}
+
+.DataTable-header {
+  font-weight: bold;
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #dee7ec;
+}
+
+.DataTable-row {
+  text-align: center;
+  padding: 3px;
+  border: 1px solid #dee7ec;
+}
+
+
+.ControlsBar {
+  text-align: center;
+  padding: 0px;
+  border: 1px  #8cacbb;
+  background-color: #dee7ec;
+}
+
+
+
+/* VINE */
+
+SearchResultsTable {
+  min-width: 400px;
+  _width: 400px;/* IE6 hack */
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #8cacbb;
+}
+.SearchResultsTable-focused {
+/*  
+	background-color: #dee7ec; 
+  background-color: #ffccff;
+*/
+  border: 1px solid #8cacbb;
+  background-color: #f3fcff;
+}
+.SearchResultsTable-normal {
+/*  
+	background-color: #dee7ec; 
+  background-color: #f3fcff;
+*/
+  border: 1px solid #8cacbb;
+  background-color: #ffccff;
+}
+
+.SearchResultsTable-TextBox {
+  min-width: 400px;
+  _width: 400px;/* IE6 hack */
+  background-color: #ffffff;
+}
+.SearchResultsTable-TextBox-focused {
+  min-width: 400px;
+  _width: 400px;/* IE6 hack */
+/*
+  background-color: #dee7ec;
+*/
+  background-color: #ffccff;
+}
+
+
+.DisclosureTable {
+  width: 100%
+  font-size: small;
+  background-color: transparent;
+  border-spacing: 0px;
+}
+
+
+/* inline tables */
+.MappingsTable {
+  width: 100%
+  font-size: small;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+.MappingsTable-header {
+  width: 100%
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #dee7ec;
+}
+
+.MappingsTable-row {
+  width: 100%
+  padding: 3px;
+  background-color: #f4f4f4;
+  border: 1px solid #8cacbb;
+}
+  
+
+.MappingsTable-focused {
+/*  
+	background-color: #dee7ec; 
+  background-color: #ffccff;
+*/
+  border: 1px solid #8cacbb;
+  background-color: #f3fcff;
+}
+  
+
+.MetadataPanel {
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #dee7ec;
+  padding: 3px;
+}
+
+.MetadataPanel-header {
+  text-align: right;
+  width: 250px;
+  padding: 3px;
+  border: 1px solid #dee7ec;
+  background-color: #eef7fc;
+}
+
+
+.MappingMetadataPanel {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border: 1px solid #dee7ec;
+  padding: 3px;
+}
+

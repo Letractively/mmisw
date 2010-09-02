@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>org.mmisw.ont</display-name>
+	<servlet>
+		<description>MMI Ontology and Term URI resolver</description>
+		<servlet-name>ontServlet</servlet-name>
+		<servlet-class>org.mmisw.ont.OntServlet</servlet-class>
+		<init-param>
+			<param-name>ont.app.version</param-name>
+			<param-value>@ont.app.version@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ont.app.build</param-name>
+			<param-value>@ont.app.build@</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>ont.internal.dir</param-name>
+			<param-value>@ont.internal.dir@</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>appserver.host</param-name>
+			<param-value>@appserver.host@</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>portal.service.url</param-name>
+			<param-value>@portal.service.url@</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>aquaportal.uploads.directory</param-name>
+			<param-value>@aquaportal.uploads.directory@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>aquaportal.voc2rdf.dir</param-name>
+			<param-value>@aquaportal.voc2rdf.dir@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>aquaportal.datasource</param-name>
+			<param-value>@aquaportal.datasource@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>agraph.ts.dir</param-name>
+			<param-value>@agraph.ts.dir@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>agraph.host</param-name>
+			<param-value>@agraph.host@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>agraph.port</param-name>
+			<param-value>@agraph.port@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>agraph.ts.name</param-name>
+			<param-value>@agraph.ts.name@</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>bioportal.rest.url</param-name>
+			<param-value>@bioportal.rest.url@</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>ga.uanumber</param-name>
+			<param-value>@ga.uanumber@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ga.domainName</param-name>
+			<param-value>@ga.domainName@</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ga.dir</param-name>
+			<param-value>@ga.dir@</param-value>
+		</init-param>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ontServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<resource-ref>
+		<description>DB Connection</description>
+		<res-ref-name>@aquaportal.datasource.name@</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>

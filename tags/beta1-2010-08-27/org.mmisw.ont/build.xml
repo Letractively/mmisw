@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="ont" default="war" basedir=".">
+
+	<property file="version.properties" />
+	<property file="build.properties" />
+	<property name="build.dir" value="_generated" />
+
+	<!-- set classpath -->
+	<path id="project.class.path">
+		<fileset dir="${appserver.lib}">
+			<include name="servlet*.jar" />
+		</fileset>
+		<pathelement path="${java.class.path}/" />
+		<fileset dir="WebContent/WEB-INF/lib">
+			<include name="*.jar" />
+			<exclude name="org.mmisw.ont.jar" />
+			<include name="jena/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<fail unless="aquaportal.jdbc.password" />
+		<tstamp>
+		    <format property="ont.app.build" pattern="yyyyMMddHHmm" />
+		</tstamp>
+	</target>
+
+	<target name="compile" depends="init">
+		<mkdir dir="${build.dir}/classes" />
+		<javac srcdir="src" destdir="${build.dir}/classes" includes="**" debug="on" debuglevel="lines,vars,source">
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${build.dir}/lib" />
+		<jar destfile="WebContent/WEB-INF/lib/org.mmisw.ont.jar">
+			<fileset dir="${build.dir}/classes">
+				<include name="**/*.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- creates the mmiuri jar -->
+	<target name="mmiuri" depends="compile">
+		<mkdir dir="${build.dir}/lib" />
+		<jar destfile="org.mmisw.ont.mmiuri.jar">
+			<fileset dir="${build.dir}/classes">
+				<include name="org/mmisw/ont/MmiUri.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	
+	<!-- creates the vocabulary jar -->
+	<target name="voc-jar" depends="compile">
+		<mkdir dir="${build.dir}/lib" />
+		<jar destfile="org.mmisw.ont.vocabulary.jar">
+			<fileset dir="${build.dir}/classes">
+				<include name="org/mmisw/ont/vocabulary/**/*.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	
+	<!-- creates the misc jar -->
+	<target name="misc" depends="compile">
+		<mkdir dir="${build.dir}/lib" />
+		<jar destfile="org.mmisw.ont.misc.jar">
+			<fileset dir="${build.dir}/classes">
+				<include name="org/mmisw/ont/JenaUtil2.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	
+	<target name="prepare2war" depends="jar">
+		<!-- prepare tmp.WebContent -->
+		<copy todir="${build.dir}/tmp.WebContent">
+			<fileset dir="WebContent">
+				<exclude name="META-INF/context.xml" />
+				<exclude name="WEB-INF/web.xml" />
+				<exclude name="WEB-INF/lib**" />
+				<exclude name="WEB-INF/classes/log4j.xml" />
+			</fileset>
+		</copy>
+
+		<copy file="WebContent/META-INF/context.xml" 
+			tofile="${build.dir}/tmp.WebContent/META-INF/context.xml" overwrite="true">
+			<filterset>
+				<filter token="aquaportal.datasource.name" value="${aquaportal.datasource.name}" />
+				<filter token="aquaportal.jdbc.driver" value="${aquaportal.jdbc.driver}" />
+				<filter token="aquaportal.jdbc.username" value="${aquaportal.jdbc.username}" />
+				<filter token="aquaportal.jdbc.password" value="${aquaportal.jdbc.password}" />
+				<filter token="aquaportal.jdbc.url" value="${aquaportal.jdbc.url}" />
+				<filter token="aquaportal.jdbc.maxactive" value="${aquaportal.jdbc.maxactive}" />
+				<filter token="aquaportal.jdbc.maxidle" value="${aquaportal.jdbc.maxidle}" />
+				<filter token="aquaportal.jdbc.maxwait" value="${aquaportal.jdbc.maxwait}" />
+			</filterset>
+		</copy>
+
+		<copy file="WebContent/WEB-INF/web.xml" 
+			tofile="${build.dir}/tmp.WebContent/WEB-INF/web.xml" overwrite="true">
+			<filterset>
+				<filter token="ont.app.version" value="${ont.app.version}" />
+				<filter token="ont.app.build"   value="${ont.app.build}" />
+				<filter token="appserver.host"   value="${appserver.host}" />
+				<filter token="portal.service.url"  value="${portal.service.url}" />
+				<filter token="aquaportal.datasource.name" value="${aquaportal.datasource.name}" />
+				<filter token="aquaportal.uploads.directory" value="${aquaportal.uploads.directory}" />
+				<filter token="aquaportal.voc2rdf.dir" value="${aquaportal.voc2rdf.dir}" />
+				<filter token="aquaportal.datasource" value="${aquaportal.datasource}" />
+				<filter token="agraph.host" value="${agraph.host}" />
+				<filter token="agraph.port" value="${agraph.port}" />
+				<filter token="agraph.ts.dir" value="${agraph.ts.dir}" />
+				<filter token="agraph.ts.name" value="${agraph.ts.name}" />
+				<filter token="ont.internal.dir"   value="${ont.internal.dir}" />
+				<filter token="bioportal.rest.url" value="${bioportal.rest.url}" />
+				<filter token="ga.uanumber"   value="${ga.uanumber}" />
+				<filter token="ga.domainName" value="${ga.domainName}" />
+				<filter token="ga.dir"        value="${ga.dir}" />
+			</filterset>
+		</copy>
+
+		<copy file="WebContent/WEB-INF/classes/log4j.xml" 
+			tofile="${build.dir}/tmp.WebContent/WEB-INF/classes/log4j.xml" overwrite="true">
+			<filterset>
+				<filter token="ont.app.logfilepath"       value="${ont.app.logfilepath}" />
+				<filter token="ont.app.maxlogfilesize"    value="${ont.app.maxlogfilesize}" />
+				<filter token="ont.app.maxlogbackupindex" value="${ont.app.maxlogbackupindex}" />
+				<filter token="ont.app.log.deflevel"      value="${ont.app.log.deflevel}" />
+				<filter token="ont.app.log.ontlevel"      value="${ont.app.log.ontlevel}" />
+			</filterset>
+		</copy>
+		
+		<copy todir="${build.dir}/tmp.web-inf-lib" flatten="true">
+			<fileset dir="WebContent/WEB-INF/lib">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+		
+	</target>
+	
+	
+	<target name="war" depends="prepare2war">
+		<war warfile="${build.dir}/ont.war" webxml="${build.dir}/tmp.WebContent/WEB-INF/web.xml">
+			<fileset dir="${build.dir}/tmp.WebContent" />
+			<lib dir="${build.dir}/tmp.web-inf-lib" />
+		</war>
+
+		<!-- remove temporary dirs --> 
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="${build.dir}/tmp.web-inf-lib" />
+			<fileset dir="${build.dir}/tmp.WebContent" />
+		</delete>
+	</target>
+	
+	<target name="clean">
+		<delete file="WebContent/WEB-INF/lib/org.mmisw.ont.jar" />
+		<delete>
+			<fileset dir="${build.dir}" includes="**/*.class" />
+		</delete>
+	</target>
+
+</project>

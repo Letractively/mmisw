@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="@aquaportal.datasource.name@"
+		type="javax.sql.DataSource" 
+		driverClassName="@aquaportal.jdbc.driver@"
+		username="@aquaportal.jdbc.username@" 
+		password="@aquaportal.jdbc.password@"
+		url="@aquaportal.jdbc.url@" 
+		maxActive="@aquaportal.jdbc.maxactive@"
+		maxIdle="@aquaportal.jdbc.maxidle@" 
+		maxWait="@aquaportal.jdbc.maxwait@" />
+</Context>

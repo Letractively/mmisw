@@ -1,0 +1,35 @@
+<module>
+
+      <!-- Inherit the core Web Toolkit stuff.                        -->
+      <inherits name='com.google.gwt.user.User'/>
+      
+      <!-- Inherit the default GWT style sheet.  You can change       -->
+      <!-- the theme of your GWT application by uncommenting          -->
+      <!-- any one of the following lines.                            -->
+      <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+      <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+      <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+      <!-- Other module inherits                                      -->
+      <inherits name='org.mmisw.iserver.gwt.IServer'/>
+      
+      <!--  smartgwt not enabled - doesn't work well with gwt 1.5.2 
+      <inherits name="com.smartgwt.SmartGwt"/> 
+      <inherits name="com.smartclient.theme.enterprise.EnterpriseResources"/>
+	  -->
+
+      <!-- Specify the app entry point class.                         -->
+      <entry-point class='org.mmisw.ontmd.gwt.client.Main'/>
+    
+      <!-- Specify the application specific style sheet.              -->
+      <stylesheet src='Main.css' />
+	
+	<servlet path="/ontmdService" class="org.mmisw.ontmd.gwt.server.OntMdServiceImpl"/>
+	
+	<servlet path="/upload" class="org.mmisw.ontmd.gwt.server.UploadServlet"/>
+	
+	<servlet path="/direg" class="org.mmisw.ontmd.gwt.server.DirectRegistrationServlet"/>
+	
+	<!-- servlet path="/voc2rdfService" class="org.mmisw.ontmd.gwt.server.voc2rdf.Voc2RdfServiceImpl"/ -->
+	
+</module>

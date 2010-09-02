@@ -1,0 +1,48 @@
+body {
+	background-color: white;
+	color: black;
+	font-family: Arial, sans-serif;
+	font-size: normal;
+	margin: 8px;
+	margin-top: 3px;
+	margin: 0px 20px 20px 20px;
+}
+
+
+div.outer {
+        width: 400px;
+        border: 1px solid green;
+}
+
+div.inner {
+        float: left;
+        white-space: nowrap;
+        padding-right: 3px;
+} 
+
+
+table {
+	empty-cells: hide;
+}
+
+/* inline tables */
+table.inline {
+  font-size: normal;
+  background-color: #ffffff;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+table.inline th {
+  padding: 3px;
+  border: 1px solid #8cacbb;
+  background-color: #dee7ec;
+}
+
+table.inline td {
+  padding: 3px;
+  border: 1px solid #8cacbb;
+}
+
+
+
